@@ -1,4 +1,4 @@
-# tictactoe-frontend
+# TicTacToe
 
 Sukurti dviejų žaidėjų kryžiukų-nuliukų žaidimą, kuriame vartotojai galėtų žaisti realiuoju laiku. 
 Žaidimo būsena bus saugoma Redis duomenų bazėje, o WebSockets leis atnaujinti žaidimo lentą abiejuose žaidėjų pusėse realiu laiku.
