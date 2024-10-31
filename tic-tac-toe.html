@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="./tic-tac-toe.css">
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@latest/dist/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+</head>
+<body>
+
+<div class="board" id="board">
+    <button class="cell" onclick="makeMove(0)"></button>
+    <button class="cell" onclick="makeMove(1)"></button>
+    <button class="cell" onclick="makeMove(2)"></button>
+    <button class="cell" onclick="makeMove(3)"></button>
+    <button class="cell" onclick="makeMove(4)"></button>
+    <button class="cell" onclick="makeMove(5)"></button>
+    <button class="cell" onclick="makeMove(6)"></button>
+    <button class="cell" onclick="makeMove(7)"></button>
+    <button class="cell" onclick="makeMove(8)"></button>
+</div>
+
+<div class="scoreboard">
+    <p>Player 1 (X): <span id="player1Score">0</span></p>
+    <p>Player 2 (O): <span id="player2Score">0</span></p>
+</div>
+
+<script>
+    let board = ['', '', '', '', '', '', '', '', ''];
+    let currentPlayer = 'X';
+    let player1Score = 0;
+    let player2Score = 0;
+    let ties = 0;
+
+    function makeMove(index) {
+        if (board[index] === '') {
+            board[index] = currentPlayer;
+            const cell = document.querySelectorAll('.cell')[index];
+            cell.textContent = currentPlayer;
+            cell.classList.add(currentPlayer);
+
+            if (checkWin()) {
+                if (currentPlayer === 'X') {
+                    player1Score++;
+                    document.getElementById('player1Score').textContent = player1Score;
+                } else {
+                    player2Score++;
+                    document.getElementById('player2Score').textContent = player2Score;
+                }
+                resetBoard();
+            } else if (board.every(cell => cell !== '')) {
+                ties++;
+                document.getElementById('ties').textContent = ties;
+                resetBoard();
+            } else {
+                currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            }
+        }
+    }
+
+    function checkWin() {
+        const winPatterns = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+            [0, 4, 8], [2, 4, 6]             // Diagonals
+        ];
+        return winPatterns.some(pattern => 
+            pattern.every(index => board[index] === currentPlayer)
+        );
+    }
+
+    function resetBoard() {
+        board = ['', '', '', '', '', '', '', '', ''];
+        document.querySelectorAll('.cell').forEach(cell => {
+            cell.textContent = '';
+            cell.classList.remove('X', 'O');
+        });
+        currentPlayer = 'X';
+    }
+</script>
+
+</body>
+</html>
