@@ -23,7 +23,7 @@
 </div>
 
 <div class="scoreboard">
-    <p id="player1Name">Player 1 (X): <span id="player1Score">0</span></p>
+    <p id="player1Name"> <span id="player1Score">0</span></p>
     <p>Player 2 (O): <span id="player2Score">0</span></p>
     <p>"Cats" game: <span id="ties">0</span></p>
 </div>
@@ -33,7 +33,7 @@
     // Get player name from URL
     const params = new URLSearchParams(window.location.search);
     const playerName = params.get("name") || "Player 1";
-    document.getElementById("player1Name").textContent = `${playerName} (X): `;
+    document.getElementById("player1Name").innerHTML = `${playerName} (X): <span id="player1Score">0</span>`;
 
     let board = ['', '', '', '', '', '', '', '', ''];
     let currentPlayer = 'X';
