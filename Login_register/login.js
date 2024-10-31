@@ -61,6 +61,7 @@ export async function createLoginContainer(containerID){
 
     loginDiv.appendChild(errorMessage);
 
+
     main_containter.appendChild(loginDiv);   
    
 }
@@ -83,6 +84,9 @@ function getUserData(){
 }
 
 function clearUserData(){
+
+
+    
     document.getElementById("username").value = "";  
 }
 
