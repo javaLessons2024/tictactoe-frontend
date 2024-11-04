@@ -30,11 +30,11 @@ body {
 .cell:hover {
     background-color: rgba(50, 50, 50, 0.7);
 }
-.cell.X {
+.cellX {
     color: #00f;
     text-shadow: 0 0 15px #00f, 0 0 30px #00f;
 }
-.cell.O {
+.cellO {
     color: #f00;
     text-shadow: 0 0 15px #f00, 0 0 30px #f00;
 }
