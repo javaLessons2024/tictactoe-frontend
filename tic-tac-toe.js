@@ -49,6 +49,7 @@ function checkWin() {
     );
 }
 
+/*
 function resetBoard() {
     board = ['', '', '', '', '', '', '', '', ''];
     document.querySelectorAll('.cell').forEach(cell => {
@@ -56,6 +57,15 @@ function resetBoard() {
         cell.classList.remove('X', 'O');
     });
     currentPlayer = 'X';
+}
+*/
+function resetBoard(){
+    document.getElementById('player1Name').textContent = gameSession.player1;
+    document.getElementById('player2Name').textContent = gameSession.player2;
+    for(let i = 0; i < 9; i++){
+        let button = document.getElementById('button' + i);
+        button.textContent = ' ';
+    }
 }
 
 function drawBoard(){
