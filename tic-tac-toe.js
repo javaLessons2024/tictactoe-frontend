@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", async function() {
     
     document.getElementById("player1Name").innerHTML = playerName;
     gameSession = await getSessionId(playerName);
+    if(gameSession.player1 == playerName){
+        window.location.href = "./index.html";
+    }
     joinGame(gameSession.sessionId);
     drawBoard();
     
