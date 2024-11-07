@@ -1,6 +1,6 @@
 var gameSession = null;
 var stompClient = null;
-var url = "http://api.tictactoe.pokerdash.fun";
+var url = "https://api.tictactoe.pokerdash.fun";
 
     async function getSessionId(name){
     

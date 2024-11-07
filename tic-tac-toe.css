@@ -45,10 +45,32 @@ body {
 .cellX {
     color: #00f;
     text-shadow: 0 0 15px #00f, 0 0 30px #00f;
+    width: 120px;
+    height: 120px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 3px solid #4d4d4d;
+    font-size: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .cellO {
     color: #f00;
     text-shadow: 0 0 15px #f00, 0 0 30px #f00;
+    width: 120px;
+    height: 120px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 3px solid #4d4d4d;
+    font-size: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .scoreboard {
     margin-top: 20px;
