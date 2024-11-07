@@ -8,11 +8,23 @@ body {
     background: linear-gradient(135deg, #1b1f3a, #291b4a);
     color: white;
 }
+
+.mainGamePanel {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+}
+
 .board {
     display: grid;
     grid-template-columns: repeat(3, 120px);
     grid-template-rows: repeat(3, 120px);
     gap: 5px;
+}
+
+.resetbutton {
+
 }
 .cell {
     width: 120px;
@@ -42,4 +54,24 @@ body {
     margin-top: 20px;
     text-align: center;
     color: #fff;
+}
+
+
+.resetbutton button {
+    width: 100%;
+    margin-top: 50px;
+    padding: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #6b1111;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;    
+    box-shadow: 0px 6px 10px  #5c3939;
+        
+}
+.resetbutton button:hover {
+    box-shadow: 0px 6px 10px #362a49;
+    background-color: #38048b;
 }

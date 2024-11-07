@@ -12,24 +12,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 </head>
 <body>
-<div>
-    <p id="winner"></p>
-</div>
-<div class="board" id="board">
-    <button id="button0" class="cell" onclick="makeMove(0)"></button>
-    <button id="button1" class="cell" onclick="makeMove(1)"></button>
-    <button id="button2" class="cell" onclick="makeMove(2)"></button>
-    <button id="button3" class="cell" onclick="makeMove(3)"></button>
-    <button id="button4" class="cell" onclick="makeMove(4)"></button>
-    <button id="button5" class="cell" onclick="makeMove(5)"></button>
-    <button id="button6" class="cell" onclick="makeMove(6)"></button>
-    <button id="button7" class="cell" onclick="makeMove(7)"></button>
-    <button id="button8" class="cell" onclick="makeMove(8)"></button>
-</div>
 
-<div class="scoreboard">
-    <p id="player1Name"></p>
-    <p id="player2Name"></p>
+<div class = "mainGamePanel">
+    <div style="display: flex; width: 100%;flex-direction: column;"; >
+        <div style="display: flex; width: 100%;justify-content:center">
+                <h1 id="message">Info</h1>
+        </div>
+          <div style="display: flex; width: 100%;justify-content:space-between">        
+                <div id = "playerOne" > <h1 id = "player1Name"> Player 1</h1></div>
+                <div id = "playerTwo"> <h1 id = "player2Name"> Player 2</h1></div>              
+        </div>
+    </div>
+    <div class="board" id="board">
+        <button id="button0" class="cell" onclick="makeMove(0)"></button>
+        <button id="button1" class="cell" onclick="makeMove(1)"></button>
+        <button id="button2" class="cell" onclick="makeMove(2)"></button>
+        <button id="button3" class="cell" onclick="makeMove(3)"></button>
+        <button id="button4" class="cell" onclick="makeMove(4)"></button>
+        <button id="button5" class="cell" onclick="makeMove(5)"></button>
+        <button id="button6" class="cell" onclick="makeMove(6)"></button>
+        <button id="button7" class="cell" onclick="makeMove(7)"></button>
+        <button id="button8" class="cell" onclick="makeMove(8)"></button>
+    </div>
+
+    <div class="resetbutton">
+        <button id="buttonReset" onclick=resetBoard()> Play Again</button>
+    </div>
 </div>
 
 </body>
