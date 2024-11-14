@@ -10,35 +10,46 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sockjs-client@latest/dist/sockjs.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="webrtc.js"></script>
 </head>
 <body>
-
-<div class = "mainGamePanel">
-    <div style="display: flex; width: 100%;flex-direction: column;"; >
-        <div style="display: flex; width: 100%;justify-content:center">
-                <h1 id="message"></h1>
-        </div>
-          <div style="display: flex; width: 100%;justify-content:space-between">        
-                <div id = "playerOne" > <h1 id = "player1Name"> Player 1</h1></div>
-                <div id = "playerTwo"> <h1 id = "player2Name"> Player 2</h1></div>              
-        </div>
-    </div>
-    <div class="board" id="board">
-        <button id="button0" class="cell" onclick="makeMove(0)"></button>
-        <button id="button1" class="cell" onclick="makeMove(1)"></button>
-        <button id="button2" class="cell" onclick="makeMove(2)"></button>
-        <button id="button3" class="cell" onclick="makeMove(3)"></button>
-        <button id="button4" class="cell" onclick="makeMove(4)"></button>
-        <button id="button5" class="cell" onclick="makeMove(5)"></button>
-        <button id="button6" class="cell" onclick="makeMove(6)"></button>
-        <button id="button7" class="cell" onclick="makeMove(7)"></button>
-        <button id="button8" class="cell" onclick="makeMove(8)"></button>
+<div>
+    <div>
+        <h1>Two-Person Video Chat</h1>
+        <video id="localVideo" autoplay playsinline muted style="height: 100px; width: 100px;"></video>
+        <video id="remoteVideo" autoplay playsinline style="height: 100px; width: 100px;"></video>
+        <button onclick="startCall()">Start Call</button>
     </div>
 
-    <div class="resetbutton">
-        <button id="buttonReset" onclick=resetBoard()> Play Again</button>
+    <div class = "mainGamePanel">
+        <div style="display: flex; width: 100%;flex-direction: column;"; >
+            <div style="display: flex; width: 100%;justify-content:center">
+                    <h1 id="message"></h1>
+            </div>
+            <div style="display: flex; width: 100%;justify-content:space-between">        
+                    <div id = "playerOne" > <h1 id = "player1Name"> Player 1</h1></div>
+                    <div id = "playerTwo"> <h1 id = "player2Name"> Player 2</h1></div>              
+            </div>
+        </div>
+        <div class="board" id="board">
+            <button id="button0" class="cell" onclick="makeMove(0)"></button>
+            <button id="button1" class="cell" onclick="makeMove(1)"></button>
+            <button id="button2" class="cell" onclick="makeMove(2)"></button>
+            <button id="button3" class="cell" onclick="makeMove(3)"></button>
+            <button id="button4" class="cell" onclick="makeMove(4)"></button>
+            <button id="button5" class="cell" onclick="makeMove(5)"></button>
+            <button id="button6" class="cell" onclick="makeMove(6)"></button>
+            <button id="button7" class="cell" onclick="makeMove(7)"></button>
+            <button id="button8" class="cell" onclick="makeMove(8)"></button>
+        </div>
+
+        <div class="resetbutton">
+            <button id="buttonReset" onclick=resetBoard()> Play Again</button>
+        </div>
     </div>
+
+
+
 </div>
-
 </body>
 </html>
