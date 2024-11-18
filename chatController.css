@@ -9,19 +9,19 @@
 .commentDiv{
     margin-top: 10px;
     padding: 5px;
-    width: 80%;
+    width: 78%;
     border-radius: 20px; 
     display: flex; 
     align-items: center;   
     flex-direction: column;  
-    background-color:rgb(45, 158, 179);      
+    background-color:rgb(40, 135, 151);      
 }
 
 .commentDiv label{
     width: 95%;  
     font-size: 15px;    
     text-align: justify;
-    padding: 5px;
+    
     color:#38048b;
 }
 
@@ -57,7 +57,8 @@
   }
   
 .messageContainer {
-    height: 500px;
+    height: 650px;
+    width: 300px; 
     
     
 }
@@ -66,7 +67,7 @@
     
 }
 .messageControllContainer input{
-    width: 80%;
+    width: 75%;
     height: 30px;
     margin: 5px;
     border-radius: 5px;
@@ -89,7 +90,11 @@
 }
 
 .chatbox{
+    margin-left: 10vh;
+    padding: 2px;    
+    width: 300px;    
     border-radius: 5px;
     background-color: aliceblue;
+    box-shadow: 0px 10px 16px  #5c3939;
 }
 
