@@ -3,29 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-9387793805447969">
     <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" href="tic-tac-toe.css">
-    <link rel="stylesheet" href="chatController.css">    
+    <link rel="stylesheet" href="chatController.css"> 
+    <link rel="icon" href="favicon.JPG" type="image/JPG">   
     <script src="./websocket.js"></script>
     <script src="./tic-tac-toe.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sockjs-client@latest/dist/sockjs.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>   
 
     <script src="chatController.js"></script>
     <script src="webrtc.js"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9387793805447969"
+    crossorigin="anonymous"></script>
 
 
 </head>
 <body>
 <div>
-    <div style="display: flex">
+    <div class = "main-container" style="display: flex;">
         <div>
-            <div style="display: flex; flex-direction: column; align-items: flex-start; margin-right:10vh;">
+            <div class="video-container" >
                 <video id="localVideo" autoplay playsinline muted style="height: 300px; width: 300px; border: 2px solid #333; display: block; margin-bottom: 10px; background-color:black;"></video>
                 <video id="remoteVideo" autoplay playsinline style="height: 300px; width: 300px; border: 2px solid #333; display: block; background-color:black;"></video>
+                <button id="startCallButton" onclick="startCall()" style="background-color: #4CAF50; color: white; border-radius: 5px; width: 305px; height: 50px; margin-top: 5vh;">Start Call</button>
             </div>
-            <button id="startCallButton" onclick="startCall()" style="background-color: #4CAF50; color: white; border-radius: 5px; width: 305px; height: 50px; margin-top: 5vh;">Start Call</button>
+         
 
         </div>
     
@@ -55,8 +61,8 @@
                 <button id="buttonReset" onclick=resetBoard()> Play Again</button>
             </div>
         </div>
-      <div>
 
+    <div class="chat-container">
         <div class = "chatbox" >
             <div class = "messageContainer" id = "messageContainer">            </div>
             <div class = "messageControllContainer">
@@ -67,11 +73,33 @@
         </div>
 
     </div>
+
+    <div style="display: none;">
+
     </div>
 
 
-    
+</div>
+
+ 
+
 
 </div>
+    
+    <div style="display: flex; margin-top: 20px;"> 
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9387793805447969"
+        crossorigin="anonymous"></script>
+
+        <ins class="adsbygoogle"
+                style="display:inline-block;width:728px;height:90px"
+                data-ad-client="ca-pub-9387793805447969"
+                data-ad-slot="5351201549"></ins>
+        <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script> 
+        
+    </div> 
+   
 </body>
 </html>
