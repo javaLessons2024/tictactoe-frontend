@@ -33,6 +33,12 @@ var url = "https://api.tictactoe.pokerdash.fun";
                     drawBoard();
 
                 }, {});
+
+                stompClient.subscribe('/topic/chatMessage/' + sessionId, function (message) {   
+                    console.log(JSON.parse(message.body));                
+                    writeAComment("messageContainer",JSON.parse(message.body))
+
+                }, {});
                 
                 resolve(frame);
             }, function (error) {
@@ -46,4 +52,8 @@ var url = "https://api.tictactoe.pokerdash.fun";
         stompClient.send("/app/game/" + gameSession.sessionId, {}, JSON.stringify(gameSession));
     }
 
+    async function sendMessageToAPI(message){
+        stompClient.send("/app/chatMessage/" + gameSession.sessionId, {}, JSON.stringify(message));
+
+    }
     
