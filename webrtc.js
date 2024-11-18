@@ -100,10 +100,10 @@ function sendSignalingMessage(message) {
 // Start the call by capturing local media and creating an offer
 async function startCall() {
   if(isConnected == true){
-    stompClientCRT.disconnect();
     document.getElementById("startCallButton").innerHTML = "Start Call";
     isConnected = false;
-    disconnectVideo();
+    //disconnectVideo();
+    disconnectMediaStream(localStream);
   }else{
     try {
       localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
@@ -121,7 +121,7 @@ async function startCall() {
       sendSignalingMessage({ type: "offer", offer });
       document.getElementById("startCallButton").innerHTML = "Disconnect";
       isConnected = true;
-      connectVideo();
+      //connectVideo();
     } catch (error) {
       console.error("Error starting call or capturing local media:", error);
     }
@@ -243,4 +243,8 @@ function disconnectVideo(){
 function connectVideo(){
   document.getElementById("remoteVideo").start();
   document.getElementById("remoteVideo").start();
+}
+function disconnectMediaStream(stream) {
+  // Stop each track in the stream
+  stream.getTracks().forEach(track => track.stop());
 }
