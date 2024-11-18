@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async function() {
   await joinWebCRT();
 });
 
-
+var isConnected = false;
 let localStream;
 let remoteStream;
 let socketCRT;
@@ -99,23 +99,32 @@ function sendSignalingMessage(message) {
 
 // Start the call by capturing local media and creating an offer
 async function startCall() {
+  if(isConnected == true){
+    stompClientCRT.disconnect();
+    document.getElementById("startCallButton").innerHTML = "Start Call";
+    isConnected = false;
+    disconnectVideo();
+  }else{
+    try {
+      localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+      document.getElementById("localVideo").srcObject = localStream;
+      console.log("Local stream captured:", localStream);
   
-  try {
-    localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-    document.getElementById("localVideo").srcObject = localStream;
-    console.log("Local stream captured:", localStream);
-
-    // Add local tracks to the peer connection
-    localStream.getTracks().forEach(track => peerConnection.addTrack(track, localStream));
-    console.log("Added tracks to peer connection:", peerConnection.getSenders());
-
-    // Create and send offer
-    const offer = await peerConnection.createOffer();
-    await peerConnection.setLocalDescription(offer);
-    console.log("Created and set local offer:", offer);
-    sendSignalingMessage({ type: "offer", offer });
-  } catch (error) {
-    console.error("Error starting call or capturing local media:", error);
+      // Add local tracks to the peer connection
+      localStream.getTracks().forEach(track => peerConnection.addTrack(track, localStream));
+      console.log("Added tracks to peer connection:", peerConnection.getSenders());
+  
+      // Create and send offer
+      const offer = await peerConnection.createOffer();
+      await peerConnection.setLocalDescription(offer);
+      console.log("Created and set local offer:", offer);
+      sendSignalingMessage({ type: "offer", offer });
+      document.getElementById("startCallButton").innerHTML = "Disconnect";
+      isConnected = true;
+      connectVideo();
+    } catch (error) {
+      console.error("Error starting call or capturing local media:", error);
+    }
   }
 }
 
@@ -225,4 +234,13 @@ function setRemoteAnswer(answer) {
           
       })
       .catch(error => console.error("Error setting remote answer:", error));
+}
+function disconnectVideo(){
+  document.getElementById("localVideo").pause();
+  document.getElementById("remoteVideo").pause();
+}
+
+function connectVideo(){
+  document.getElementById("remoteVideo").start();
+  document.getElementById("remoteVideo").start();
 }
